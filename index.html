@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Recast Software – Application Workspace Value Simulator</title>
+  <link rel="icon" type="image/svg+xml" href="assets/recast-logo.svg" />
+  <link rel="stylesheet" href="assets/styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+
+<body>
+  <header class="header">
+    <a href="https://www.recastsoftware.com" target="_blank" class="logo-link">
+      <img src="assets/recast-logo.svg" alt="Recast Software Logo" class="logo" />
+    </a>
+    <h1>Application Workspace Demo</h1>
+  </header>
+
+  <main id="main-content">
+    <section class="demo-step" id="step1">
+      <h2>Welcome to Application Workspace</h2>
+      <p>Discover how Application Workspace simplifies application delivery, management and user experience.</p>
+      <button class="next-btn" data-next="step2">Next</button>
+    </section>
+
+    <section class="demo-step hidden" id="step2">
+      <h2>Setup Store & Smart Icons</h2>
+      <p>Explore how Setup Store accelerates app deployment with thousands of pre-packaged apps.</p>
+      <button class="prev-btn" data-prev="step1">Back</button>
+      <button class="next-btn" data-next="step3">Next</button>
+    </section>
+
+    <section class="demo-step hidden" id="step3">
+      <h2>Access Manager & Release/Patch</h2>
+      <p>Manage secure app access and streamline patch cycles for every device and user context.</p>
+      <button class="prev-btn" data-prev="step2">Back</button>
+      <button class="next-btn" data-next="step4">Next</button>
+    </section>
+
+    <section class="demo-step hidden" id="step4">
+      <h2>Integration Scenarios</h2>
+      <p>Integrate seamlessly with Intune, AVD, W365, Citrix and more for unified lifecycle control.</p>
+      <button class="prev-btn" data-prev="step3">Back</button>
+      <button class="next-btn" data-next="step5">Next</button>
+    </section>
+
+    <section class="demo-step hidden" id="step5">
+      <h2>Recast Software – Application Workspace Value Simulator</h2>
+      <p class="subtitle">Estimate how Application Workspace improves productivity, reduces IT effort, and drives measurable business value.</p>
+      <div class="currency-toggle">
+        <label>Currency:</label>
+        <select id="currencySelect">
+          <option value="GBP" selected>£ GBP</option>
+          <option value="USD">$ USD</option>
+          <option value="EUR">€ EUR</option>
+        </select>
+      </div>
+
+      <div class="calculator-section">
+        <h3>1. End-User Productivity</h3>
+        <label>Number of Employees <input type="number" id="numEmployees" value="1000" /></label>
+        <label>Average Salary <input type="number" id="avgSalary" value="45000" /></label>
+        <label>Lost Time per Week (mins) <input type="number" id="lostTime" value="30" /></label>
+        <label>Reduction in Lost Time (%) <input type="number" id="reductionLostTime" value="50" /></label>
+        <label>Working Weeks/Year <input type="number" id="workWeeks" value="46" /></label>
+      </div>
+
+      <div class="calculator-section">
+        <h3>2. IT Efficiency</h3>
+        <h4>Applications</h4>
+        <label>Total Applications <input type="number" id="numApps" value="350" /></label>
+        <label>Updates per App/Year <input type="number" id="updatesPerApp" value="8" /></label>
+        <label>Hours per Update <input type="number" id="hoursPerUpdate" value="1.5" /></label>
+        <label>Automation Gain (%) <input type="number" id="autoGainApps" value="65" /></label>
+
+        <h4>JML (Joiners, Movers, Leavers)</h4>
+        <label>Joiners/Month <input type="number" id="joiners" value="50" /></label>
+        <label>Movers/Month <input type="number" id="movers" value="30" /></label>
+        <label>Leavers/Month <input type="number" id="leavers" value="40" /></label>
+        <label>Time per Event (mins) <input type="number" id="timePerJML" value="45" /></label>
+        <label>Automation Gain (%) <input type="number" id="autoGainJML" value="70" /></label>
+      </div>
+
+      <div id="results" class="results">
+        <h3>Results</h3>
+        <div id="summaryText"></div>
+        <canvas id="valueChart" width="400" height="200"></canvas>
+        <canvas id="fteChart" width="400" height="200"></canvas>
+      </div>
+
+      <div class="actions">
+        <button id="calculateBtn">Calculate</button>
+        <button id="downloadPDF">Download PDF</button>
+        <button id="downloadCSV">Download CSV</button>
+        <button id="copySummary">Copy Summary</button>
+        <button class="prev-btn" data-prev="step4">Back</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© 2025 Recast Software. All rights reserved.</p>
+  </footer>
+
+  <script src="js/nav.js"></script>
+  <script src="js/valuesim-calculator.js"></script>
+  <script src="js/chart-setup.js"></script>
+  <script src="js/export.js"></script>
+</body>
+</html>
